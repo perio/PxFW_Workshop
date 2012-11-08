@@ -1,0 +1,17 @@
+
+<?php ob_start(); ?>
+
+<!-- 外部CSSを読み込む -->
+<link rel="stylesheet" href="./index.files/contents.css" type="text/css" />
+
+<?php $px->theme()->send_content( ob_get_clean(), 'head' ); ?>
+
+<p>
+	これは製品情報ページのテストコンテンツです。<br />
+</p>
+<p><img src="index.files/nyanko.jpg" alt="にゃんこ" /></p>
+
+<p class="cont_css_sample">
+	ここはコンテンツ独自CSSにより、赤文字で表示されます。<br />
+</p>
+

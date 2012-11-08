@@ -1,0 +1,237 @@
+<?php
+	//↓ $page_info にページの情報を格納しています。
+	//	 test::var_dump( $page_info ); で、変数の内容を確認できます。
+	$page_info = $this->px->site()->get_current_page_info();
+?><!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title><?php print htmlspecialchars($page_info['title']); ?> | <?php print htmlspecialchars($px->get_conf('project.name')); ?></title>
+		<meta name="keywords" content="<?php print htmlspecialchars($page_info['keywords']); ?>" />
+		<meta name="description" content="<?php print htmlspecialchars($page_info['description']); ?>" />
+		<script src="<?php print htmlspecialchars($px->get_install_path()); ?>common/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="<?php print htmlspecialchars($px->get_install_path()); ?>common/css/setup.css" type="text/css" />
+		<link rel="stylesheet" href="<?php print htmlspecialchars($px->get_install_path()); ?>common/css/modules.css" type="text/css" />
+		<style type="text/css">
+body{
+	font-size:small;
+	font-family:"メイリオ", sans-serif;
+}
+
+.outline{
+	max-width:800px;
+	margin:0 auto;
+}
+.middle{
+	min-height:300px;
+}
+
+/**
+ * .logo
+ */
+.logo{
+	font-size:x-large;
+	font-weight:bold;
+	padding:20px;
+}
+
+/**
+ * h1
+ */
+h1{
+	padding-left:0.7em;
+	border-left:5px solid #999999;
+	font-weight:bold;
+}
+
+/**
+ * .breadcrumb
+ */
+.breadcrumb{
+}
+.breadcrumb *{
+	list-style-type:none;
+	margin:0; padding:0;
+	display:inline;
+}
+
+/**
+ * .navi_global
+ */
+.navi_global{
+}
+.navi_global ul,
+.navi_global ul li{
+	padding:0; margin:0;
+	list-style-type:none;
+}
+.navi_global ul li{
+	width:23%;
+	float:left;
+	padding:0 2px;
+}
+.navi_global ul li a{
+	display:block;
+	padding:5px;
+	text-align:center;
+	background:#3366ee;
+	color:#ffffff;
+}
+.navi_global ul li a.current{
+	background:#7799ff;
+}
+
+/**
+ * .navi_2nd
+ */
+.navi_2nd{
+	min-height:1em;
+	background:#7799ff;
+}
+.navi_2nd ul,
+.navi_2nd ul li{
+	padding:0; margin:0;
+	list-style-type:none;
+}
+.navi_2nd ul{
+	padding:4px;
+}
+.navi_2nd ul li{
+	padding-right:12px;
+	display:inline;
+}
+.navi_2nd ul li a{
+	text-align:center;
+	color:#ffffff;
+}
+.navi_2nd ul li a.current{
+}
+
+/**
+ * .navi_3rd
+ */
+.navi_3rd{
+	background:#aabbff;
+}
+.navi_3rd ul,
+.navi_3rd ul li{
+	padding:0; margin:0;
+	list-style-type:none;
+}
+.navi_3rd ul{
+	padding:4px;
+}
+.navi_3rd ul li{
+	padding-right:12px;
+	display:inline;
+}
+.navi_3rd ul li a{
+	text-align:center;
+	color:#000099;
+}
+.navi_3rd ul li a.current{
+	color:#0000ee;
+	background-color:#ffffff;
+}
+
+/**
+ * .navi_4th
+ */
+.navi_4th{
+}
+.navi_4th ul,
+.navi_4th ul li{
+	margin:0; padding:0;
+	list-style-type:none;
+	display:inline;
+}
+.navi_4th ul{
+	float:right;
+}
+.navi_4th ul li{
+}
+.navi_4th ul li a{
+}
+.navi_4th ul li a.current{
+}
+
+		</style>
+<?php
+	//↓コンテンツから受け取った
+	//	headセクション内用のソースを出力しています。
+	print $px->theme()->pull_content('head');
+?>
+	</head>
+	<body>
+		<div class="outline" id="pagetop">
+			<div class="header">
+				<div class="logo"><a href="<?php print htmlspecialchars( $px->theme()->href('') ); ?>"><?php print htmlspecialchars($px->get_conf('project.name')); ?></a></div>
+				<div class="navi_global clearfix">
+<!--
+
+
+UTODO: 実装してみてください。
+
+
+
+-->
+				</div>
+				<div class="navi_2nd clearfix">
+<!--
+
+
+UTODO: 実装してみてください。
+
+
+
+-->
+				</div>
+				<div class="navi_3rd clearfix">
+<!--
+
+
+UTODO: 実装してみてください。
+
+
+
+-->
+				</div>
+				<div class="breadcrumb"><?php print $px->theme()->mk_breadcrumb(); ?></div>
+			</div><!-- /.header -->
+			<div class="middle">
+				<div class="navi_4th">
+<!--
+
+
+UTODO: 実装してみてください。
+
+
+
+-->
+				</div>
+				<h1><!-- UTODO: 実装してみてください。 --></h1>
+				<div id="content" class="contents">
+
+<?php
+	//↓コンテンツから受け取った
+	//	コンテンツエリアのソースを出力しています。
+	print $px->theme()->pull_content();
+?>
+
+				</div><!-- /#content -->
+			</div><!-- /.middle -->
+			<div class="footer">
+				<div class="right small">[<a href="#pagetop" class="up">ページの先頭へ戻る</a>]</div>
+				<div class="center">
+					[<?php print $px->theme()->mk_link('/'); ?>]
+					[<?php print $px->theme()->mk_link('/inquiry/'); ?>]
+					[<?php print $px->theme()->mk_link('/support/'); ?>]
+					[<?php print $px->theme()->mk_link('/sitemap/'); ?>]
+				</div>
+				<div class="center">
+					<p>Copyright (C)2012 <?php print htmlspecialchars($px->get_conf('project.name')); ?>, All rights reserved.</p>
+				</div>
+			</div><!-- /.footer -->
+		</div><!-- /.outline -->
+	</body>
+</html>
